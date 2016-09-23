@@ -86,7 +86,19 @@ options:
       - Ignore dependencies, only install/upgrade the package itself
     default: false
     version_added: '2.1'
-author: "Trond Hindenes (@trondhindenes), Peter Mounce (@petemounce), Pepe Barbe (@elventear), Adam Keech (@smadam813)"
+  proxy:
+    description:
+      - proxy url used to install chocolatey and the package
+    version_added: '2.2'
+  proxy_user:
+    description:
+      - proxy user used to install chocolatey and the package
+    version_added: '2.2'
+  proxy_password:
+    description:
+      - proxy password used to install chocolatey and the package
+    version_added: '2.2'
+author: "Trond Hindenes (@trondhindenes), Peter Mounce (@petemounce), Pepe Barbe (@elventear), Adam Keech (@smadam813), Pierre Templier (@ptemplier)"
 '''
 
 # TODO:
@@ -113,4 +125,11 @@ EXAMPLES = '''
   win_chocolatey:
     name: git
     source: https://someserver/api/v2/
+
+  # Install curl using proxy
+  win_chocolatey:
+    name: curl
+    proxy: http://proxy-server:8080/
+    proxy_user: joe
+    proxy_password: p@ssw0rd
 '''
